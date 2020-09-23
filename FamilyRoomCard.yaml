@@ -49,7 +49,6 @@ cards:
           top: 21%
           transform: initial
        
-
 #Body of card    
   - type: picture-elements
     #background image
