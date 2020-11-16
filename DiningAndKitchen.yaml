@@ -6,49 +6,37 @@ cards:
     elements:
       #Card title
       - type: 'custom:text-element'
-        text: Family Room
+        text: Kitchen and Dining
         style:
           color: white
           font-size: 175%
           left: 5%
           top: 35%
           transform: initial
-      #top icon spot #1
-      - type: state-icon
-        entity: sensor.projector
-        style:
-          right: 32%
-          top: 20%
-          transform: initial             
-      #top icon spot #2
-      - type: state-icon
-        entity: binary_sensor.familyroomsmall
-        style:
-          right: 25%
-          top: 20%
-          transform: initial
+
       #top icon spot #3        
       - type: state-icon
-        entity: binary_sensor.familyroomsmall        
+        entity: binary_sensor.deck_door       
         style:
           right: 19%
           top: 20%
           transform: initial
       #top icon spot #4
       - type: state-icon
-        entity: binary_sensor.familyroom_motion        
+        entity: binary_sensor.kitchen_motion       
         style:
           right: 13%
           top: 20%
           transform: initial      
       #top icon spot #5
       - type: state-label
-        entity: sensor.familyroom_temperature        
+        entity: sensor.kitchen_temperature     
         style:
           right: 2%
           top: 21%
           transform: initial
        
+
 #Body of card    
   - type: picture-elements
     #background image
@@ -56,11 +44,11 @@ cards:
     elements:
       #background graph
       - type: 'custom:mini-graph-card'
-        upper_bound: 80
-        lower_bound: 55
+        upper_bound: 85
+        lower_bound: 65
         line_width: .5
         entities:
-          - entity: sensor.familyroom_temperature
+          - entity: sensor.kitchen_temperature
             index: 0
         height: 202
         show:
@@ -74,10 +62,10 @@ cards:
       #button #1  
       - type: 'custom:button-card'
         color: auto
-        entity: light.family_room_light_level
+        entity: light.kitchen_light_level
         show_name: false
         style:
-          left: 12%
+          left: 10%
           top: 32%
         styles:
           card:
@@ -92,10 +80,10 @@ cards:
           action: more-info
       #button #2  
       - color: auto
-        entity: switch.familyroom_tv_power
+        entity: light.counter_lights_level
         show_name: false
         style:
-          left: 31%
+          left: 26%
           top: 32%
         styles:
           card:
@@ -112,10 +100,10 @@ cards:
       #button #3  
       - type: 'custom:button-card'
         color: auto
-        entity: media_player.denon_avr_x3500h
+        entity: light.dining_room_light_level
         show_name: false
         style:
-          left: 50%
+          left: 43%
           top: 32%
         styles:
           card:
@@ -131,10 +119,10 @@ cards:
        #button #4       
       - type: 'custom:button-card'
         color: auto
-        entity: media_player.family_room_roku
+        entity: media_player.kitchen_display
         show_name: false
         style:
-          left: 69%
+          left: 59%
           top: 32%
         styles:
           card:
@@ -147,13 +135,14 @@ cards:
             - height: 30px
         tap_action:
           action: more-info
-       #button #5    
+
+       #button #5       
       - type: 'custom:button-card'
         color: auto
-        entity: media_player.family_room_mini
+        entity: cover.ikea_blind_center_window_covering
         show_name: false
         style:
-          left: 88%
+          left: 77%
           top: 32%
         styles:
           card:
@@ -167,50 +156,59 @@ cards:
         tap_action:
           action: more-info
           
+       #button #6
+      - type: 'custom:button-card'
+        color: auto
+        entity: cover.ikea_blind_right_window_covering
+        show_name: false
+        style:
+          left: 90%
+          top: 32%
+        styles:
+          card:
+            - border-radius: 50px
+            - width: 50px
+            - height: 50px
+            - background-color: '#424242'            
+          icon:
+            - width: 30px
+            - height: 30px
+        tap_action:
+          action: more-info          
+          
       #button #1 label
       - type: 'custom:text-element'
         style:
-          left: 12%
+          left: 10%
           top: 60%
-        text: Light
+        text: Kitchen
         
       #button #2 label        
       - type: 'custom:text-element'
         style:
-          left: 31%
+          left: 26%
           top: 60%
-        text: TV
+        text: Counter
       #button #3 label
       - type: 'custom:text-element'
         style:
-          left: 50%
+          left: 43%
           top: 60%
-        text: Amp
-      - type: state-label
-        entity: sensor.denon_source
-        style:
-          font-style: italic
-          left: 50%
-          top: 75%
+        text: Dining
+
       #button #4 label
       - type: 'custom:text-element'
         style:
-          left: 69%
+          left: 59%
           top: 60%
-        text: Roku
-      - type: state-label
-        attribute: source
-        entity: media_player.family_room_roku
-        style:
-          font-style: italic
-          left: 69%
-          top: 75%
-      #button #5 label
+        text: Google
+
+      #button #5-6 label
       - type: 'custom:text-element'
         style:
-          left: 88%
+          left: 83%
           top: 60%
-        text: Google          
+        text: Blinds
 
 title: null
 type: 'custom:vertical-stack-in-card'
