@@ -1,0 +1,108 @@
+cards:
+#Header area - title, background, icons
+  - type: picture-elements
+    #background image for header    
+    image: /local/title-dark.png 
+    elements:
+      #Card title
+      - type: 'custom:text-element'
+        text: Master Bathroom
+        style:
+          color: white
+          font-size: 175%
+          left: 5%
+          top: 35%
+          transform: initial
+      #top icon spot #4
+      - type: state-icon
+        entity: binary_sensor.masterbath_motion     
+        style:
+          right: 13%
+          top: 20%
+          transform: initial              
+      #top icon spot #5
+      - type: state-label
+        entity: sensor.masterbath_temperature   
+        style:
+          right: 2%
+          top: 21%
+          transform: initial
+          
+#Body of card    
+  - type: picture-elements
+    #background image
+    image: /local/background200.png
+    elements:
+      #background graph
+      - type: 'custom:mini-graph-card'
+        upper_bound: 100
+        lower_bound: 5
+        line_width: .5
+        entities:
+          - entity: sensor.masterbath_temperature
+            index: 0
+        height: 202
+        show:
+          icon: false
+          name: false
+          state: false
+        style:
+          right: '-50%'
+          top: 47%
+          width: 100%
+      #button #1  
+      - type: 'custom:button-card'
+        color: auto
+        entity: light.master_bathroom_light_level
+        show_name: false
+        style:
+          left: 12%
+          top: 32%
+        styles:
+          card:
+            - border-radius: 50px
+            - width: 50px
+            - height: 50px
+            - background-color: '#424242'            
+          icon:
+            - width: 30px
+            - height: 30px
+        tap_action:
+          action: more-info
+
+      #button #2  
+      - color: auto
+        entity: switch.masterbathroom_fan
+        show_name: false
+        style:
+          left: 26%
+          top: 32%
+        styles:
+          card:
+            - border-radius: 50px
+            - width: 50px
+            - height: 50px
+            - background-color: '#424242'            
+          icon:
+            - width: 30px
+            - height: 30px
+        tap_action:
+          action: more-info
+        type: 'custom:button-card'
+        
+      #button #1 label
+      - type: 'custom:text-element'
+        style:
+          left: 12%
+          top: 60%
+        text: Light
+
+      #button #2 label        
+      - type: 'custom:text-element'
+        style:
+          left: 26%
+          top: 60%
+        text: Fan
+        
+title: null
+type: 'custom:vertical-stack-in-card'
