@@ -15,7 +15,7 @@ cards:
           transform: initial
       #top icon spot #5
       - type: state-label
-        entity: sensor.masterbath_temperature   
+        entity: sensor.masterbedroom_temperature 
         style:
           right: 2%
           top: 21%
@@ -32,7 +32,7 @@ cards:
         lower_bound: 5
         line_width: .5
         entities:
-          - entity: sensor.masterbath_temperature
+          - entity: sensor.masterbedroom_temperature
             index: 0
         height: 202
         show:
